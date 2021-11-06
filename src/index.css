@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+.input{
+
+  @apply pl-10 pr-3 py-3 border border-gray-300 focus:outline-none focus:ring-4 rounded-md focus:ring-indigo-400 transition duration-500 focus:ring-offset-1
+
+}
