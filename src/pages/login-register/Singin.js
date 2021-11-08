@@ -29,7 +29,7 @@ const Singin = () => {
 
                 <div className="flex h-screen items-center">
 
-                    <form onSubmit={handleSubmit} className="flex flex-col w-2/6 mx-auto gap-y-5 p-8 border rounded-xl shadow-xl" action="">
+                    <form onSubmit={handleSubmit} className="flex flex-col w-full lg:w-2/6 mx-auto gap-y-5 p-8 border rounded-xl shadow-xl" action="">
 
                         <div className="relative">
                             <HiOutlineMail className="absolute top-4 left-3 text-xl text-indigo-600" />

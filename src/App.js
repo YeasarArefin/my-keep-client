@@ -16,6 +16,7 @@ function App() {
 
 				<Routes>
 
+					<Route path='/' element={null} />
 					<Route path='/singup' element={<Singup />} />
 					<Route path='/singin' element={<Singin />} />
 

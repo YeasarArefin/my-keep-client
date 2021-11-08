@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { HiMenuAlt3 } from 'react-icons/hi';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import logo from '../../assets/notes.png';
 
@@ -8,10 +8,9 @@ const Navbar = () => {
     const { user, SingOut } = useAuth();
     const [mobileNav, setMobileNav] = useState(false);
     const menu = [
-        { id: 1, text: 'Home', to: '/' },
+        { id: 1, text: 'Notes', to: '/' },
         { id: 2, text: 'Sing in', to: '/singin' },
         { id: 3, text: 'Sing Up', to: '/singup' },
-        // { id: 4, text: 'Contact', to: '/' },
     ];
 
     //handle click 
@@ -19,7 +18,7 @@ const Navbar = () => {
         setMobileNav(!mobileNav);
     };
     return (
-        <header className="border-b fixed w-full top-0 bg-indigo-600">
+        <header className="border-b fixed w-full top-0 bg-indigo-600 z-50">
             <div className="container">
                 {/* desktop nav  */}
                 <nav className="flex items-center px-12 text-white border-gray-300 py-3 bg-indigo-600">
@@ -46,7 +45,7 @@ const Navbar = () => {
                         <ul className="flex items-center space-x-4">
                             {menu.map(item => (
                                 <li key={item.id}>
-                                    <Link to={item.to} className="text-lg">{item.text}</Link>
+                                    <NavLink to={item.to} className={(info) => info.isActive ? 'border-b-2' : 'text-white'}>{item.text}</NavLink>
                                 </li>
                             ))}
                         </ul>
