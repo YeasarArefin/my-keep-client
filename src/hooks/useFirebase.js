@@ -10,19 +10,19 @@ const useFirebase = () => {
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
-    const GoogleSingin = (navigate) => {
+    const GoogleSingin = (history) => {
 
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 setUser(result.user);
-                navigate('/');
+                history.push('/');
             }).catch((error) => {
                 console.log(error.message);
             });
 
     };
     console.log(user);
-    const SingupWithEmailAndPassword = (userName, email, password, navigate) => {
+    const SingupWithEmailAndPassword = (userName, email, password, history) => {
 
         createUserWithEmailAndPassword(auth, email, password)
 
@@ -38,7 +38,7 @@ const useFirebase = () => {
                     sendEmailVerification(auth.currentUser)
                         .then(() => {
                             alert('user created');
-                            navigate('/');
+                            history.push('/');
                         });
 
                 }).catch((error) => {
@@ -52,12 +52,12 @@ const useFirebase = () => {
 
     };
 
-    const SinginWithEmailAndPassword = (email, password, navigate) => {
+    const SinginWithEmailAndPassword = (email, password, history) => {
 
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 setUser(result.user);
-                navigate('/');
+                history.push('/');
             })
             .catch((error) => {
                 console.log(error.message);

@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { FiLock } from 'react-icons/fi';
 import { HiOutlineMail } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const Singin = () => {
@@ -10,7 +10,7 @@ const Singin = () => {
     const { GoogleSingin, SinginWithEmailAndPassword } = useAuth();
     const emailRef = useRef('');
     const passwordRef = useRef('');
-    const navigate = useNavigate();
+    const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,7 +18,7 @@ const Singin = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        SinginWithEmailAndPassword(email, password, navigate);
+        SinginWithEmailAndPassword(email, password, history);
 
     };
 
@@ -51,7 +51,7 @@ const Singin = () => {
 
                         <h1 className="text-center text-gray-500">OR</h1>
 
-                        <button onClick={() => GoogleSingin(navigate)} className="py-2 rounded-md border-gray-300 border-2 transition duration-500 focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-offset-1 flex items-center justify-center hover:bg-gray-100" type="submit">
+                        <button onClick={() => GoogleSingin(history)} className="py-2 rounded-md border-gray-300 border-2 transition duration-500 focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-offset-1 flex items-center justify-center hover:bg-gray-100" type="submit">
                             <div className="p-2"><FcGoogle className="text-2xl" /></div>Google Sing in</button>
 
                     </form>

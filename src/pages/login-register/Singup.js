@@ -4,7 +4,7 @@ import { HiOutlineMail } from 'react-icons/hi';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
-import { useNavigate } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const Singup = () => {
 
@@ -12,7 +12,7 @@ const Singup = () => {
     const nameRef = useRef('');
     const emailRef = useRef('');
     const passwordRef = useRef('');
-    const navigate = useNavigate();
+    const history = useHistory();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,7 +21,7 @@ const Singup = () => {
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
 
-        SingupWithEmailAndPassword(userName, email, password, navigate);
+        SingupWithEmailAndPassword(userName, email, password, history);
 
     };
 
@@ -60,7 +60,7 @@ const Singup = () => {
 
                         <h1 className="text-center text-gray-500">OR</h1>
 
-                        <button onClick={() => GoogleSingin(navigate)} className="py-2 rounded-md border-gray-300 border-2 transition duration-500 focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-offset-1 flex items-center justify-center hover:bg-gray-100" type="submit">
+                        <button onClick={() => GoogleSingin(history)} className="py-2 rounded-md border-gray-300 border-2 transition duration-500 focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-offset-1 flex items-center justify-center hover:bg-gray-100" type="submit">
                             <div className="p-2"><FcGoogle className="text-2xl" /></div>Google Sing in</button>
 
                     </form>

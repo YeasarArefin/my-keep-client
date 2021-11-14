@@ -1,26 +1,62 @@
 import './App.css';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Singup from './pages/login-register/Singup';
 import Navbar from './pages/Navbar/Navbar';
 import AuthProvider from './context/AuthProvider';
 import Singin from './pages/login-register/Singin';
+import Notes from './pages/Notes/Notes';
+import NoteField from './pages/Notes/NoteField';
 
 function App() {
 	return (
 
 		<AuthProvider>
 
+			{/* <Router>
+
+				<Navbar />
+
+				<Switch>
+
+					<Route exact path='/'  >
+					<Notes />
+					<Route/>
+					<Route exact path='/notes' component={<Notes />} />
+					<Route exact path='/addnote' component={<NoteField />} />
+					<Route exact path='/singup' component={<Singup />} />
+					<Route exact path='/singin' component={<Singin />} />
+
+				</Switch>
+
+			</Router> */}
+
 			<Router>
 
 				<Navbar />
 
-				<Routes>
+				<Switch>
 
-					<Route path='/' element={null} />
-					<Route path='/singup' element={<Singup />} />
-					<Route path='/singin' element={<Singin />} />
+					<Route exact path='/'>
+						<Notes />
+					</Route>
 
-				</Routes>
+					<Route exact path='/notes'>
+						<Notes />
+					</Route>
+
+					<Route exact path='/addnotes'>
+						<NoteField />
+					</Route>
+
+					<Route exact path='/singup'>
+						<Singup />
+					</Route>
+
+					<Route exact path='/singup'>
+						<Singin />
+					</Route>
+
+				</Switch>
 
 			</Router>
 
