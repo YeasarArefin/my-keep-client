@@ -44,11 +44,11 @@ function App() {
 						<Notes />
 					</Route>
 
-					<Route exact path='/addnotes'>
+					<Route exact path='/addnote'>
 						<NoteField />
 					</Route>
 
-					<Route exact path='/singup'>
+					<Route exact path='/singin'>
 						<Singup />
 					</Route>
 
