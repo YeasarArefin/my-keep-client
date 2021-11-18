@@ -10,8 +10,8 @@ const Navbar = () => {
     const menu = [
         { id: 3, text: 'Add Note', to: '/addnote' },
         { id: 1, text: 'Notes', to: '/notes' },
-        { id: 2, text: 'Sing in', to: '/singin' },
-        { id: 3, text: 'Sing Up', to: '/singup' },
+        // { id: 2, text: 'Sing in', to: '/singin' },
+        // { id: 3, text: 'Sing Up', to: '/singup' },
     ];
 
     //handle click 
@@ -46,7 +46,7 @@ const Navbar = () => {
                         <ul className="flex items-center space-x-4">
                             {menu.map(item => (
                                 <li key={item.id}>
-                                    <NavLink to={item.to} activeStyle={{ borderBottom: '2px solid white' }} className="text-white">{item.text}</NavLink>
+                                    <NavLink to={item.to} className={(navinfo) => navinfo.isActive ? "border-b-2 border-white font-semibold" : ""}>{item.text}</NavLink>
                                 </li>
                             ))}
                         </ul>
@@ -109,3 +109,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+

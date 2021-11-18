@@ -19,8 +19,7 @@ const NoteField = () => {
             },
             body: JSON.stringify(data)
         })
-            .then(res => res.json())
-            .then(data => console.log(data));
+            .then(res => res.json());
 
         e.target.reset();
     };
