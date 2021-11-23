@@ -21,7 +21,7 @@ function App() {
 
 				<Routes>
 
-					<Route path='/' element={<PrivateRoute><Notes /></PrivateRoute>} />
+					{/* <Route path='/' element={<PrivateRoute><Notes /></PrivateRoute>} /> */}
 					<Route path='/notes' element={<PrivateRoute><Notes /></PrivateRoute>} />
 					<Route path='/notes/update/:_id' element={<PrivateRoute><UpdateNote /></PrivateRoute>} />
 					<Route path='/addnote' element={<PrivateRoute><NoteField /></PrivateRoute>} />

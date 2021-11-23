@@ -19,16 +19,19 @@ const UpdateNote = () => {
 
         fetch(`http://localhost:5000/notes/${_id}`)
             .then(res => res.json())
-            .then(data => setNote(data));
+            .then(data => {
+                setNote(data);
+                setBtnDisabled(true);
+            });
 
     }, [_id]);
 
     const handleUpdatedNote = (e) => {
         setUpdatedNote(e.target.value);
+        setBtnDisabled(false);
     };
 
     const handleUpdate = (_id) => {
-
 
         if (updatedNote !== '') {
 
@@ -43,13 +46,19 @@ const UpdateNote = () => {
                 .then(data => {
 
                     if (data.modifiedCount > 0) {
-                        Swal.fire('Any fool can use a computer');
+
                         // Navigate('/');
                         setShowAlert(true);
                         setBtnDisabled(true);
                         setTimeout(() => {
                             setShowAlert(false);
                         }, 10000);
+
+                        Swal.fire(
+                            'Success!',
+                            'Your Note Has Been Updated!',
+                            'success'
+                        );
                     }
 
                 });
@@ -72,8 +81,8 @@ const UpdateNote = () => {
             <div className="container">
 
                 <div>
-                    <h1 className="mt-20 text-center mb-3 text-3xl font-bold">Update Your Note</h1>
-                    <div className="h-1 w-24 bg-indigo-600 mx-auto mb-10"></div>
+                    <h1 className="mt-20 text-center mb-3 text-3xl font-bold">Change & Update Your Note</h1>
+                    <div className="h-1 w-32 bg-indigo-600 mx-auto mb-10"></div>
                 </div>
 
                 <div>

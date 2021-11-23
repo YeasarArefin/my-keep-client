@@ -7,7 +7,7 @@ initApp();
 const useFirebase = () => {
 
     const [user, setUser] = useState({});
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
@@ -93,9 +93,10 @@ const useFirebase = () => {
                 setUser({});
             }
 
+            setLoading(false);
+
         });
 
-        setLoading(false);
         return () => subscribed;
 
     }, [auth]);
