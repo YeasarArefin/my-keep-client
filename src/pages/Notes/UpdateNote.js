@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router';
+import { useParams, Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import Alert from '@mui/material/Alert';
 import { MdKeyboardArrowLeft } from 'react-icons/md';
@@ -9,7 +9,6 @@ const UpdateNote = () => {
     const [note, setNote] = useState({});
     const { _id } = useParams();
     const [updatedNote, setUpdatedNote] = useState('');
-    const Navigate = useNavigate();
     const [showAlert, setShowAlert] = useState(false);
     const [btnDisabled, setBtnDisabled] = useState();
 
@@ -45,7 +44,6 @@ const UpdateNote = () => {
 
                     if (data.modifiedCount > 0) {
 
-                        // Navigate('/');
                         setShowAlert(true);
                         setBtnDisabled(true);
                         setTimeout(() => {
@@ -69,7 +67,6 @@ const UpdateNote = () => {
                 'error'
             );
         }
-
 
     };
 
@@ -96,10 +93,12 @@ const UpdateNote = () => {
 
                                 <div className="flex items-center w-60 lg:w-2/12 mx-auto">
 
-                                    <button className="border rounded-full py-2 w-28 mx-auto text-center justify-center gap-x-1 flex items-center border-indigo-600 hover:bg-indigo-500" type="submit"><MdKeyboardArrowLeft className="text-xl" />Back</button>
+                                    <Link to="/">
+                                        <button className="border rounded-full py-2 w-28 mx-auto text-center justify-center gap-x-1 flex items-center border-indigo-600 hover:bg-indigo-500 hover:text-white" type="submit"><MdKeyboardArrowLeft className="text-xl" />Back</button>
+                                    </Link>
 
                                     <button className="bg-indigo-500 w-28 mx-auto py-2 rounded-full text-white opacity-50">
-                                        Submit
+                                        Update
                                     </button>
 
                                 </div>
@@ -108,9 +107,11 @@ const UpdateNote = () => {
 
                                 <div className="flex items-center w-60 mx-auto">
 
-                                    <button onClick={() => handleUpdate(note?._id)} className="bg-gradient-to-r from-indigo-500 to-indigo-700 w-28 py-2 mx-auto rounded-full outline-none focus:ring-4 ring-indigo-300 ring-offset-1 transition duration-500 text-white" type="submit">Update</button>
+                                    <Link to="/">
+                                        <button className="border rounded-full py-2 w-28 mx-auto text-center justify-center gap-x-1 flex items-center border-indigo-600 hover:bg-indigo-500 hover:text-white" type="submit"><MdKeyboardArrowLeft className="text-xl" />Back</button>
+                                    </Link>
 
-                                    <button className="bg-gradient-to-r from-indigo-500 to-indigo-700 w-28 py-2 mx-auto rounded-full outline-none focus:ring-4 ring-indigo-300 ring-offset-1 transition duration-500 text-white" type="submit">Update</button>
+                                    <button onClick={() => handleUpdate(_id)} className="bg-gradient-to-r from-indigo-500 to-indigo-700 w-28 py-2 mx-auto rounded-full outline-none focus:ring-4 ring-indigo-300 ring-offset-1 transition duration-500 text-white" type="submit">Update</button>
 
                                 </div>
 

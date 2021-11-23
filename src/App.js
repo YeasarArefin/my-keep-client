@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Singup from './pages/login-register/Singup';
 import Navbar from './pages/Navbar/Navbar';
 import AuthProvider from './context/AuthProvider';
@@ -21,7 +21,7 @@ function App() {
 
 				<Routes>
 
-					{/* <Route path='/' element={<PrivateRoute><Notes /></PrivateRoute>} /> */}
+					<Route path='/' element={<Navigate to="/notes" />} />
 					<Route path='/notes' element={<PrivateRoute><Notes /></PrivateRoute>} />
 					<Route path='/notes/update/:_id' element={<PrivateRoute><UpdateNote /></PrivateRoute>} />
 					<Route path='/addnote' element={<PrivateRoute><NoteField /></PrivateRoute>} />

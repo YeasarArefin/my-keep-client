@@ -40,9 +40,14 @@ const NoteField = () => {
 
             <div className="container">
 
-                <form onSubmit={handleSubmit} className="w-full lg:w-2/6 mx-auto flex flex-col gap-y-3">
+                <div>
+                    <h1 className="mt-20 text-center mb-3 text-3xl font-bold">Write Your Note</h1>
+                    <div className="h-1 w-20 bg-indigo-600 mx-auto mb-10"></div>
+                </div>
 
-                    <textarea ref={noteRef} className="p-3 focus:outline-none focus:ring-4 focus:ring-indigo-500 rounded-md transition duration-500 border-2 border-gray-300 w-full shadow-xl" rows="5" name="notes" placeholder="Add Note"></textarea>
+                <form onSubmit={handleSubmit} className="w-full lg:w-4/5 mx-auto flex flex-col gap-y-10">
+
+                    <textarea ref={noteRef} className="p-3 focus:outline-none focus:ring-4 focus:ring-indigo-500 rounded-md transition duration-500 border-2 border-gray-300 w-full md:w-4/5 mx-auto shadow-xl" rows="5" name="notes" placeholder="Add Note" name="note" cols="30" rows="10"></textarea>
 
                     <button className="bg-gradient-to-r from-indigo-500 to-indigo-700 w-28 py-2 mx-auto rounded-full outline-none focus:ring-4 ring-indigo-300 ring-offset-1 transition duration-500 text-white" type="submit">Save</button>
 

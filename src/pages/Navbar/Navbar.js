@@ -8,8 +8,8 @@ const Navbar = () => {
     const { user, SingOut } = useAuth();
     const [mobileNav, setMobileNav] = useState(false);
     const menu = [
-        { id: 3, text: 'Add Note', to: '/addnote' },
         { id: 1, text: 'Notes', to: '/notes' },
+        { id: 2, text: 'Add Note', to: '/addnote' },
         // { id: 2, text: 'Sing in', to: '/singin' },
         // { id: 3, text: 'Sing Up', to: '/singup' },
     ];
