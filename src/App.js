@@ -7,6 +7,7 @@ import Singin from './pages/login-register/Singin';
 import Notes from './pages/Notes/Notes';
 import NoteField from './pages/Notes/NoteField';
 import PrivateRoute from './pages/protected-routes/PrivateRoute';
+import UpdateNote from './pages/Notes/UpdateNote';
 
 function App() {
 
@@ -22,6 +23,7 @@ function App() {
 
 					<Route path='/' element={<PrivateRoute><Notes /></PrivateRoute>} />
 					<Route path='/notes' element={<PrivateRoute><Notes /></PrivateRoute>} />
+					<Route path='/notes/update/:_id' element={<PrivateRoute><UpdateNote /></PrivateRoute>} />
 					<Route path='/addnote' element={<PrivateRoute><NoteField /></PrivateRoute>} />
 					<Route path='/singup' element={<Singup />} />
 					<Route path='/singin' element={<Singin />} />

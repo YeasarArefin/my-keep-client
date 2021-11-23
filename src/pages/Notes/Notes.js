@@ -1,5 +1,4 @@
 import React from 'react';
-import NoteField from './NoteField';
 import ShowNotes from './ShowNotes';
 
 const Notes = () => {

@@ -7,20 +7,24 @@ initApp();
 const useFirebase = () => {
 
     const [user, setUser] = useState({});
+    const [loading, setLoading] = useState(false);
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
 
     const GoogleSingin = (navigate) => {
 
+        setLoading(true);
         signInWithPopup(auth, googleProvider)
             .then((result) => {
                 setUser(result.user);
                 navigate('/');
             }).catch((error) => {
                 console.log(error.message);
-            });
+            })
+            .finally(() => setLoading(false));
 
     };
+
     const SingupWithEmailAndPassword = (userName, email, password, navigate) => {
 
         createUserWithEmailAndPassword(auth, email, password)
@@ -53,6 +57,7 @@ const useFirebase = () => {
 
     const SinginWithEmailAndPassword = (email, password, navigate) => {
 
+        setLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
                 setUser(result.user);
@@ -60,17 +65,21 @@ const useFirebase = () => {
             })
             .catch((error) => {
                 console.log(error.message);
-            });
+            })
+            .finally(() => setLoading(false));
 
     };
 
     const SingOut = () => {
 
+        setLoading(true);
         signOut(auth).then(() => {
             setUser({});
         }).catch((error) => {
             console.log(error.message);
-        });
+        })
+            .finally(() => setLoading(false));
+
 
     };
 
@@ -86,16 +95,18 @@ const useFirebase = () => {
 
         });
 
+        setLoading(false);
         return () => subscribed;
 
-    }, []);
+    }, [auth]);
 
     return {
         user,
         GoogleSingin,
         SingupWithEmailAndPassword,
         SinginWithEmailAndPassword,
-        SingOut
+        SingOut,
+        loading
     };
 
 };
