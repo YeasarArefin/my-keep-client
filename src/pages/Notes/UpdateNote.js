@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import Swal from 'sweetalert2';
 import Alert from '@mui/material/Alert';
-import Button from '@mui/material/Button';
-import Stack from '@mui/material/Stack';
-import { AlertTitle } from '@mui/material';
+import { MdKeyboardArrowLeft } from 'react-icons/md';
 
 const UpdateNote = () => {
 
@@ -17,7 +15,7 @@ const UpdateNote = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/notes/${_id}`)
+        fetch(`https://shielded-springs-23220.herokuapp.com/notes/${_id}`)
             .then(res => res.json())
             .then(data => {
                 setNote(data);
@@ -35,7 +33,7 @@ const UpdateNote = () => {
 
         if (updatedNote !== '') {
 
-            fetch(`http://localhost:5000/notes/${_id}`, {
+            fetch(`https://shielded-springs-23220.herokuapp.com/notes/${_id}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
@@ -96,12 +94,26 @@ const UpdateNote = () => {
                         {
                             btnDisabled ? (
 
-                                <button className="bg-indigo-500 w-28 mx-auto py-2 rounded-full text-white opacity-50">
-                                    Submit
-                                </button>
+                                <div className="flex items-center w-60 lg:w-2/12 mx-auto">
+
+                                    <button className="border rounded-full py-2 w-28 mx-auto text-center justify-center gap-x-1 flex items-center border-indigo-600 hover:bg-indigo-500" type="submit"><MdKeyboardArrowLeft className="text-xl" />Back</button>
+
+                                    <button className="bg-indigo-500 w-28 mx-auto py-2 rounded-full text-white opacity-50">
+                                        Submit
+                                    </button>
+
+                                </div>
 
                             ) : (
-                                <button onClick={() => handleUpdate(note?._id)} className="bg-gradient-to-r from-indigo-500 to-indigo-700 w-28 py-2 mx-auto rounded-full outline-none focus:ring-4 ring-indigo-300 ring-offset-1 transition duration-500 text-white" type="submit">Update</button>
+
+                                <div className="flex items-center w-60 mx-auto">
+
+                                    <button onClick={() => handleUpdate(note?._id)} className="bg-gradient-to-r from-indigo-500 to-indigo-700 w-28 py-2 mx-auto rounded-full outline-none focus:ring-4 ring-indigo-300 ring-offset-1 transition duration-500 text-white" type="submit">Update</button>
+
+                                    <button className="bg-gradient-to-r from-indigo-500 to-indigo-700 w-28 py-2 mx-auto rounded-full outline-none focus:ring-4 ring-indigo-300 ring-offset-1 transition duration-500 text-white" type="submit">Update</button>
+
+                                </div>
+
                             )
                         }
 

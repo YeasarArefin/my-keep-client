@@ -4,6 +4,7 @@ import { AiOutlineDelete } from 'react-icons/ai';
 import { FiEdit } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import { FcCalendar, FcClock } from 'react-icons/fc';
+import Swal from 'sweetalert2';
 
 const ShowNotes = () => {
 
@@ -12,7 +13,7 @@ const ShowNotes = () => {
 
     useEffect(() => {
 
-        fetch(`http://localhost:5000/notes?email=${user?.email}`)
+        fetch(`https://shielded-springs-23220.herokuapp.com/notes?email=${user?.email}`)
             .then(res => res.json())
             .then(data => setNotes(data));
 
@@ -20,16 +21,46 @@ const ShowNotes = () => {
 
     const handleDelete = (_id) => {
 
-        fetch(`http://localhost:5000/notes/${_id}`, {
-            method: "DELETE"
-        })
-            .then(res => res.json())
-            .then(data => {
-                if (data.deletedCount > 0) {
-                    alert('deleted');
-                    setNotes((preValu) => preValu.filter(val => val._id !== _id));
-                }
-            });
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+
+                fetch(`https://shielded-springs-23220.herokuapp.com/notes/${_id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+
+                        if (data.deletedCount > 0) {
+
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            );
+                            setNotes((preValu) => preValu.filter(val => val._id !== _id));
+                        }
+
+                    });
+
+            }
+
+        });
+
+
+
+
+
+
+
     };
 
     return (
@@ -40,13 +71,13 @@ const ShowNotes = () => {
                 {
                     notes?.map(note => <div key={note._id}>
 
-                        <div className="note relative border hover:shadow-xl transition duration-500 rounded-lg h-72 overflow-scroll overflow-x-hidden pt-14 pb-5 px-5">
+                        <div className="note relative border border-gray-200 hover:shadow-xl transition duration-500 rounded-lg h-72 overflow-scroll overflow-x-hidden pt-14 pb-5 px-5">
 
                             <div className="absolute w-full flex items-center justify-between top-2 right-2">
 
                                 <div className="text-xs pl-5 ">
 
-                                    <div className="flex gap-x-4 border border-indigo-600 px-3 py-1 rounded-full shadow-sm">
+                                    <div className="flex gap-x-2 md:gap-x-4 border border-indigo-600 px-3 py-1 rounded-full shadow-sm">
 
                                         <div className="flex items-center gap-x-1">
                                             <FcCalendar className="text-sm" />
@@ -62,7 +93,7 @@ const ShowNotes = () => {
 
                                 </div>
 
-                                <div className="flex gap-x-4">
+                                <div className="flex gap-x-2 md:gap-x-4">
 
                                     <Link to={`/notes/update/${note?._id}`}>
                                         <button className="bg-green-600 hover:bg-green-700 transition duration-300 rounded-full p-2 text-white text-lg ">
@@ -78,7 +109,7 @@ const ShowNotes = () => {
 
                             </div>
 
-                            <p>{note?.note}</p>
+                            <p className="font-semibold">{note?.note}</p>
 
                         </div>
 
