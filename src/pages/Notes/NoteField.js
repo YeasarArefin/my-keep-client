@@ -11,7 +11,10 @@ const NoteField = () => {
         e.preventDefault();
 
         const note = noteRef.current.value;
-        const data = { note, email: user.email };
+        const dateAndTime = new Date();
+        const time = dateAndTime.toLocaleTimeString();
+        const date = dateAndTime.toDateString();
+        const data = { note, email: user.email, time, date };
 
         fetch('https://shielded-springs-23220.herokuapp.com/notes', {
             method: 'POST',

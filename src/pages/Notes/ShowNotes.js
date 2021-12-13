@@ -55,12 +55,6 @@ const ShowNotes = () => {
 
         });
 
-
-
-
-
-
-
     };
 
     return (
@@ -71,7 +65,7 @@ const ShowNotes = () => {
                 {
                     notes?.map(note => <div key={note._id}>
 
-                        <div className="note relative border border-gray-200 hover:shadow-xl transition duration-500 rounded-lg h-72 overflow-scroll overflow-x-hidden pt-14 pb-5 px-5">
+                        <div className="note relative border border-gray-200 hover:shadow-2xl transition duration-500 rounded-lg h-72 overflow-scroll overflow-x-hidden pt-14 pb-5 px-5">
 
                             <div className="absolute w-full flex items-center justify-between top-2 right-2">
 
