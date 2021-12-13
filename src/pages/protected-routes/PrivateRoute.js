@@ -7,7 +7,7 @@ const PrivateRoute = ({ children }) => {
 
     const { user, loading } = useAuth();
     const location = useLocation();
-    if (loading) { return <CircularProgress />; }
+    if (loading) { return <div className='flex h-screen justify-center items-center'><CircularProgress /></div>; }
     if (user?.email) {
         return children;
     }
