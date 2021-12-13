@@ -36,31 +36,31 @@ const Singup = () => {
 
 
                         <div className="relative">
-                            <FiUser className="absolute top-4 left-3 text-xl text-indigo-600" />
+                            <FiUser className="absolute top-4 left-3 text-xl text-green-600" />
                             <input ref={nameRef} className="input w-full" type="text" placeholder="User Name" required />
                         </div>
 
                         <div className="relative">
-                            <HiOutlineMail className="absolute top-4 left-3 text-xl text-indigo-600" />
+                            <HiOutlineMail className="absolute top-4 left-3 text-xl text-green-600" />
                             <input ref={emailRef} className="input w-full" type="email" placeholder="Email" required />
                         </div>
 
                         <div className="relative">
-                            <FiLock className="absolute top-4 left-3 text-xl text-indigo-600" />
+                            <FiLock className="absolute top-4 left-3 text-xl text-green-600" />
                             <input ref={passwordRef} className="input w-full" type="password" placeholder="Password" required />
                         </div>
 
-                        <button className="py-3 rounded-md bg-indigo-600 hover:bg-indigo-700 text-white transition duration-500 focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-offset-1" type="submit">Sing up</button>
+                        <button className="py-3 rounded-md bg-green-600 hover:bg-green-700 text-white transition duration-500 focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-offset-1" type="submit">Sing up</button>
 
                         <Link to="/singin">
-                            <h1 className="hover:underline text-indigo-600 font-normal text-center">Already Have An Account ?</h1>
+                            <h1 className="hover:underline text-green-600 font-normal text-center">Already Have An Account ?</h1>
                         </Link>
 
                         <hr />
 
                         <h1 className="text-center text-gray-500">OR</h1>
 
-                        <button onClick={() => GoogleSingin(navigate)} className="py-2 rounded-md border-gray-300 border-2 transition duration-500 focus:outline-none focus:ring-4 focus:ring-indigo-300 focus:ring-offset-1 flex items-center justify-center hover:bg-gray-100" type="submit">
+                        <button onClick={() => GoogleSingin(navigate)} className="py-2 rounded-md border-gray-300 border-2 transition duration-500 focus:outline-none focus:ring-4 focus:ring-green-300 focus:ring-offset-1 flex items-center justify-center hover:bg-gray-100" type="submit">
                             <div className="p-2"><FcGoogle className="text-2xl" /></div>Google Sing in</button>
 
                     </form>

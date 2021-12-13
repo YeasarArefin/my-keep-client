@@ -71,7 +71,7 @@ const ShowNotes = () => {
 
                                 <div className="text-xs pl-5 ">
 
-                                    <div className="flex gap-x-2 md:gap-x-4 border border-indigo-600 px-3 py-1 rounded-full shadow-sm">
+                                    <div className="flex gap-x-2 md:gap-x-4 border border-green-600 px-3 py-1 rounded-full shadow-sm">
 
                                         <div className="flex items-center gap-x-1">
                                             <FcCalendar className="text-sm" />

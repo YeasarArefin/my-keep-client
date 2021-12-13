@@ -77,14 +77,14 @@ const UpdateNote = () => {
 
                 <div>
                     <h1 className="mt-20 text-center mb-3 text-3xl font-bold">Change & Update Your Note</h1>
-                    <div className="h-1 w-32 bg-indigo-600 mx-auto mb-10"></div>
+                    <div className="h-1 w-32 bg-green-600 mx-auto mb-10"></div>
                 </div>
 
                 <div>
 
                     <form onSubmit={(e) => e.preventDefault()} className="flex flex-col gap-y-10">
 
-                        <textarea onChange={handleUpdatedNote} defaultValue={note?.note} className="p-3 focus:outline-none focus:ring-4 focus:ring-indigo-500 rounded-md transition duration-500 border-2 border-gray-300 w-full md:w-4/5 mx-auto shadow-xl" rows="5" name="notes" placeholder="Add Note" name="note" cols="30" rows="10"></textarea>
+                        <textarea onChange={handleUpdatedNote} defaultValue={note?.note} className="p-3 focus:outline-none focus:ring-4 focus:ring-green-500 rounded-md transition duration-500 border-2 border-gray-300 w-full md:w-4/5 mx-auto shadow-xl" rows="5" name="notes" placeholder="Add Note" name="note" cols="30" rows="10"></textarea>
 
 
 
@@ -94,10 +94,10 @@ const UpdateNote = () => {
                                 <div className="flex items-center w-60 lg:w-2/12 mx-auto">
 
                                     <Link to="/">
-                                        <button className="border rounded-full py-2 w-28 mx-auto text-center justify-center gap-x-1 flex items-center border-indigo-600 hover:bg-indigo-500 hover:text-white" type="submit"><MdKeyboardArrowLeft className="text-xl" />Back</button>
+                                        <button className="border rounded-full py-2 w-28 mx-auto text-center justify-center gap-x-1 flex items-center border-green-600 hover:bg-green-500 hover:text-white" type="submit"><MdKeyboardArrowLeft className="text-xl" />Back</button>
                                     </Link>
 
-                                    <button className="bg-indigo-500 w-28 mx-auto py-2 rounded-full text-white opacity-50">
+                                    <button className="bg-green-500 w-28 mx-auto py-2 rounded-full text-white opacity-50">
                                         Update
                                     </button>
 
@@ -108,10 +108,10 @@ const UpdateNote = () => {
                                 <div className="flex items-center w-60 mx-auto">
 
                                     <Link to="/">
-                                        <button className="border rounded-full py-2 w-28 mx-auto text-center justify-center gap-x-1 flex items-center border-indigo-600 hover:bg-indigo-500 hover:text-white" type="submit"><MdKeyboardArrowLeft className="text-xl" />Back</button>
+                                        <button className="border rounded-full py-2 w-28 mx-auto text-center justify-center gap-x-1 flex items-center border-green-600 hover:bg-green-500 hover:text-white" type="submit"><MdKeyboardArrowLeft className="text-xl" />Back</button>
                                     </Link>
 
-                                    <button onClick={() => handleUpdate(_id)} className="bg-gradient-to-r from-indigo-500 to-indigo-700 w-28 py-2 mx-auto rounded-full outline-none focus:ring-4 ring-indigo-300 ring-offset-1 transition duration-500 text-white" type="submit">Update</button>
+                                    <button onClick={() => handleUpdate(_id)} className="bg-gradient-to-r from-green-500 to-green-700 w-28 py-2 mx-auto rounded-full outline-none focus:ring-4 ring-green-300 ring-offset-1 transition duration-500 text-white" type="submit">Update</button>
 
                                 </div>
 
